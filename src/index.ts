@@ -1,1 +1,1 @@
-export { getBungieNetUserById } from './lib/api/user';
+export * from './lib/api/user';

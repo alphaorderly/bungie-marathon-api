@@ -45,4 +45,15 @@ type UserToUserContext = {
     globalIgnoreEndDate: string;
 };
 
-export type { GeneralUser, UserToUserContext };
+type GetCredentialTypesForAccountResponse = {
+    credentialType: number;
+    credentialDisplayName: string;
+    isPublic: boolean;
+    credentialAsString: string;
+};
+
+export type {
+    GeneralUser,
+    UserToUserContext,
+    GetCredentialTypesForAccountResponse,
+};
