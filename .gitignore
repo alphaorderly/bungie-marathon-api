@@ -1,0 +1,61 @@
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Swap the comments on the following lines if you don't wish to use zero-installs
+# Documentation here: https://yarnpkg.com/features/zero-installs
+!.yarn/cache
+#.pnp.*
+
+# Directories and environment settings
+node_modules/
+dist/
+out/
+.build/
+.temp/
+.cache/
+coverage/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Test files and logs
+*.log
+*.test.ts
+*.spec.ts
+*.test.js
+*.spec.js
+coverage/
+jest/
+
+# TypeScript compilation artifacts
+*.tsbuildinfo
+*.d.ts
+*.d.ts.map
+
+# OS and editor-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Yarn and lock files (if using Yarn)
+package-lock.json
+yarn.lock
+
+# Documentation build output
+docs/
+
+# ESLint cache (optional)
+.eslintcache
+
+# Temporary build files
+*.bak
+*.tmp
+*.temp

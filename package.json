@@ -1,0 +1,42 @@
+{
+    "name": "bungie-marathon-api",
+    "version": "0.0.1",
+    "packageManager": "yarn@3.6.4",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "devDependencies": {
+        "@eslint/js": "^9.13.0",
+        "@types/node": "^22.8.2",
+        "@typescript-eslint/eslint-plugin": "^8.12.1",
+        "@typescript-eslint/parser": "^8.12.1",
+        "esbuild": "^0.24.0",
+        "eslint": "^9.13.0",
+        "eslint-config-airbnb-typescript": "^18.0.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "globals": "^15.11.0",
+        "prettier": "^3.3.3",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.12.1"
+    },
+    "scripts": {
+        "prepack": "yarn build",
+        "build": "yarn clean && yarn build:tsc && yarn build:js",
+        "build:tsc": "yarn tsc --emitDeclarationOnly",
+        "build:js": "node build.js",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "ky": "^1.7.2"
+    }
+}
