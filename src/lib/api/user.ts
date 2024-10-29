@@ -24,10 +24,8 @@ const getBungieNetUserById = async (
 
     if (!response.ok) {
         throw new ApiException(
-            data.ErrorCode,
-            data.ErrorStatus,
             'Failed to get Bungie.net user by ID',
-            data.DetailedErrorTrace,
+            response.status,
         );
     }
 
@@ -53,10 +51,8 @@ const getSanitizedPlatformDisplayNames = async (
 
     if (!response.ok) {
         throw new ApiException(
-            data.ErrorCode,
-            data.ErrorStatus,
             'Failed to get sanitized platform display names',
-            data.DetailedErrorTrace,
+            response.status,
         );
     }
 
@@ -89,10 +85,8 @@ const getCredentialTypesForTargetAccount = async (
 
     if (!response.ok) {
         throw new ApiException(
-            data.ErrorCode,
-            data.ErrorStatus,
             'Failed to get credential types for target account',
-            data.DetailedErrorTrace,
+            response.status,
         );
     }
 
@@ -110,10 +104,8 @@ const getAvailableThemes = async (): Promise<
 
     if (!response.ok) {
         throw new ApiException(
-            data.ErrorCode,
-            data.ErrorStatus,
             'Failed to get available themes',
-            data.DetailedErrorTrace,
+            response.status,
         );
     }
 

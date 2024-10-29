@@ -1,26 +1,9 @@
 class ApiException extends Error {
-    public errorCode: number;
-    public errorStatus: string;
-    public detailedErrorTrace: string;
+    public httpStatusCode: number;
 
-    /**
-     * Creates an API exception instance.
-     * @param errorCode - The error code (int32)
-     * @param errorStatus - The error status (string)
-     * @param message - The error message (string)
-     * @param detailedErrorTrace - Detailed error trace information (string)
-     */
-    constructor(
-        errorCode: number,
-        errorStatus: string,
-        message: string,
-        detailedErrorTrace: string = '',
-    ) {
+    constructor(message: string, httpStatusCode: number) {
         super(message);
-        this.name = 'ApiException';
-        this.errorCode = errorCode;
-        this.errorStatus = errorStatus;
-        this.detailedErrorTrace = detailedErrorTrace;
+        this.httpStatusCode = httpStatusCode;
     }
 
     /**
@@ -28,7 +11,7 @@ class ApiException extends Error {
      * @returns A string containing error details.
      */
     toString(): string {
-        return `ApiException: ${this.errorStatus} - ${this.message} (Error Code: ${this.errorCode})\nTrace: ${this.detailedErrorTrace}`;
+        return `ApiException: ${this.message} (HTTP Status Code: ${this.httpStatusCode})`;
     }
 }
 
