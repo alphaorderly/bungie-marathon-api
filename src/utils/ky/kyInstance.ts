@@ -1,11 +1,11 @@
 import ky from 'ky';
-import { Configuration } from 'lib/config/Configuration';
+import { getConfig } from 'lib/config/config';
 
 const kyInstance = ky.create({
     prefixUrl: 'https://www.bungie.net/Platform',
     headers: {
-        'X-API-Key': Configuration.getXApiKey(),
-        'Authorization': `Bearer ${Configuration.getAccessToken()}`
+        'X-API-Key': getConfig().apiKey,
+        'Authorization': `Bearer ${getConfig().token}`,
     },
     hooks: {
         beforeRetry: []

@@ -11,5 +11,5 @@
             "bungie-marathon-api/types": ["types/index"]
         }
     },
-    "include": ["src/**/*.ts"]
+    "include": ["src/**/*.ts", "global.d.ts"]
 }
