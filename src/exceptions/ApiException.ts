@@ -32,4 +32,4 @@ class ApiException extends Error {
     }
 }
 
-export default ApiException;
+export { ApiException };

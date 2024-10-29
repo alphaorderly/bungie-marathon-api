@@ -5,7 +5,7 @@ import {
     GetCredentialTypesForAccountResponse,
 } from '../../types/user';
 import kyInstance from '../../utils/ky/kyInstance';
-import ApiException from '../../exceptions/ApiException';
+import { ApiException } from '../../exceptions/ApiException';
 import { UserTheme } from 'types/config';
 
 const getBungieNetUserById = async (
