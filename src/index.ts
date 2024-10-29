@@ -1,4 +1,2 @@
-import { setXApiKey } from './lib/config';
-import { getBungieNetUserById } from './lib/api/user';
-
-export { setXApiKey, getBungieNetUserById };
+export { setXApiKey, getXApiKey } from './lib/config';
+export { getBungieNetUserById } from './lib/api/user';
