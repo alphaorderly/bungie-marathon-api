@@ -9,16 +9,11 @@ import { ApiException } from '../../exceptions/ApiException';
 import { UserTheme } from 'types/config';
 
 const getBungieNetUserById = async (
-    apiKey: string,
     membershipId: string,
 ): Promise<ApiResponse<GeneralUser, Record<string, string>>> => {
     const response: KyResponse<
         ApiResponse<GeneralUser, Record<string, string>>
-    > = await kyInstance.get(`User/GetBungieNetUserById/${membershipId}`, {
-        headers: {
-            'X-API-Key': apiKey,
-        },
-    });
+    > = await kyInstance.get(`User/GetBungieNetUserById/${membershipId}`);
 
     const data = await response.json();
 
@@ -33,19 +28,12 @@ const getBungieNetUserById = async (
 };
 
 const getSanitizedPlatformDisplayNames = async (
-    apiKey: string,
     membershipId: string,
 ): Promise<ApiResponse<Record<string, string>, Record<string, string>>> => {
     const response: KyResponse<
         ApiResponse<Record<string, string>, Record<string, string>>
     > = await kyInstance.get(
-        `User/GetSanitizedPlatformDisplayNames/${membershipId}`,
-        {
-            headers: {
-                'X-API-Key': apiKey,
-            },
-        },
-    );
+        `User/GetSanitizedPlatformDisplayNames/${membershipId}`);
 
     const data = await response.json();
 
@@ -60,8 +48,6 @@ const getSanitizedPlatformDisplayNames = async (
 };
 
 const getCredentialTypesForTargetAccount = async (
-    apiKey: string,
-    accessToken: string,
     membershipId: string,
 ): Promise<
     ApiResponse<GetCredentialTypesForAccountResponse[], Record<string, string>>
@@ -71,15 +57,7 @@ const getCredentialTypesForTargetAccount = async (
             GetCredentialTypesForAccountResponse[],
             Record<string, string>
         >
-    > = await kyInstance.get(
-        `User/GetCredentialTypesForTargetAccount/${membershipId}`,
-        {
-            headers: {
-                'X-API-Key': apiKey,
-                Authorization: `Bearer ${accessToken}`,
-            },
-        },
-    );
+    > = await kyInstance.get(`User/GetCredentialTypesForTargetAccount/${membershipId}`);
 
     const data = await response.json();
 

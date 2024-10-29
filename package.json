@@ -33,6 +33,7 @@
         "eslint-plugin-prettier": "^5.2.1",
         "globals": "^15.11.0",
         "prettier": "^3.3.3",
+        "rimraf": "^6.0.1",
         "typescript": "^5.6.3",
         "typescript-eslint": "^8.12.1"
     },
@@ -41,7 +42,7 @@
         "build": "yarn clean && yarn build:tsc && yarn build:js",
         "build:tsc": "yarn tsc --emitDeclarationOnly",
         "build:js": "node build.js",
-        "clean": "rm -rf dist"
+        "clean": "rimraf dist"
     },
     "dependencies": {
         "ky": "^1.7.2"
