@@ -1,6 +1,6 @@
 {
     "name": "bungie-marathon-api",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "packageManager": "yarn@3.6.4",
     "type": "module",
     "exports": {
