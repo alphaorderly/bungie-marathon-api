@@ -1,11 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "lib": ["es6", "dom", "es5"],
-    "declaration": true,
-    "outDir": "./dist",
-    "strict": true
-  },
-  "include": ["src/**/*.ts"]
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "lib": ["es6", "dom", "es5"],
+        "declaration": true,
+        "outDir": "./dist",
+        "strict": true,
+        "baseUrl": "./src",
+        "paths": {
+            "bungie-marathon-api/types": ["types/index"]
+        }
+    },
+    "include": ["src/**/*.ts"]
 }
