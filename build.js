@@ -5,7 +5,6 @@ const baseConfig = {
   outdir: "dist",
   bundle: true,
   sourcemap: true,
-  target: "es2019", 
 };
 
 Promise.all([

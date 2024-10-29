@@ -9,11 +9,16 @@ import { ApiException } from '../../exceptions/ApiException';
 import { UserTheme } from 'types/config';
 
 const getBungieNetUserById = async (
+    apiKey: string,
     membershipId: string,
 ): Promise<ApiResponse<GeneralUser, Record<string, string>>> => {
     const response: KyResponse<
         ApiResponse<GeneralUser, Record<string, string>>
-    > = await kyInstance.get(`User/GetBungieNetUserById/${membershipId}`);
+    > = await kyInstance.get(`User/GetBungieNetUserById/${membershipId}`, {
+        headers: {
+            'X-API-Key': apiKey,
+        }
+    });
 
     const data = await response.json();
 
