@@ -1,6 +1,12 @@
+import { ApiResponse } from './api';
+import { UserTheme } from './config';
 import { IgnoreResponse } from './ignores';
 
-type GeneralUser = {
+/****************************************************************************************
+ * User Types
+ ****************************************************************************************/
+
+export type GeneralUser = {
     membershipId: number; // int64
     uniqueName: string;
     normalizedName: string;
@@ -39,21 +45,90 @@ type GeneralUser = {
     egsDisplayName: string;
 };
 
-type UserToUserContext = {
+export type UserToUserContext = {
     isFollowing: boolean;
     ignoreStatus: IgnoreResponse;
     globalIgnoreEndDate: string;
 };
 
-type GetCredentialTypesForAccountResponse = {
+export type GetCredentialTypesForAccountResponse = {
     credentialType: number;
     credentialDisplayName: string;
     isPublic: boolean;
     credentialAsString: string;
 };
 
-export type {
+export type HardLinkedUserMembership = {
+    membershipType: number;
+    membershipId: number;
+    CrossSaveOverriddenType: number;
+    CrossSaveOverriddenMembershipId: number;
+};
+
+export type UserSearchResponse = {
+    searchResults: UserSearchResponseDetail[];
+    page: number;
+    hasMore: boolean;
+};
+
+export type UserSearchResponseDetail = {
+    bungieGlobalDisplayName: string;
+    bungieGlobalDisplayNameCode: number;
+    bungieNetMembershipId: number;
+    destinyMemberships: UserInfoCard[];
+};
+
+export type UserInfoCard = {
+    supplementalDisplayName: string;
+    iconPath: string;
+    crossSaveOverride: number;
+    applicableMembershipTypes: number[];
+    isPublic: boolean;
+    membershipType: number;
+    membershipId: number;
+    displayName: string;
+    bungieGlobalDisplayName: string;
+    bungieGlobalDisplayNameCode: number;
+};
+
+/****************************************************************************************
+ * Response Type
+ ****************************************************************************************/
+
+export type GetBungieNetUserByIdResponseType = ApiResponse<
     GeneralUser,
-    UserToUserContext,
-    GetCredentialTypesForAccountResponse,
+    Record<string, string>
+>;
+
+export type GetSanitizedPlatformDisplayNameResponseType = ApiResponse<
+    Record<string, string>,
+    Record<string, string>
+>;
+
+export type GetCredentialTypesForAccountResponseType = ApiResponse<
+    GetCredentialTypesForAccountResponse[],
+    Record<string, string>
+>;
+
+export type GetAvailableThemesResponseType = ApiResponse<
+    UserTheme[],
+    Record<string, string>
+>;
+
+export type GetMembershipFromHardLinkedCredentialResponseType = ApiResponse<
+    HardLinkedUserMembership,
+    Record<string, string>
+>;
+
+export type SearchByGlobalNamePostResponseType = ApiResponse<
+    UserSearchResponse,
+    Record<string, string>
+>;
+
+/****************************************************************************************
+ * Request Body Type
+ ****************************************************************************************/
+
+export type SearchByGlobalNamePostRequestType = {
+    displayNamePrefix: string;
 };
